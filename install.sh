@@ -33,7 +33,6 @@ TARGETDIR=$HOME
 
 # Get the dotfiles directory
 SOURCEDIR=$(realpath $(dirname $0))
-echo $SOURCEDIR
 SOURCEDIR=$(echo $SOURCEDIR | sed -e "s|/.$||")
 SOURCEDIR=$(echo $SOURCEDIR | sed -e "s|^$TARGETDIR/||")
 
