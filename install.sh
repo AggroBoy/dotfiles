@@ -1,22 +1,30 @@
 #!env zsh
 
+# Where are the dotfiles going? ($HOME of course)
+TARGETDIR=$HOME
+
+# Get the dotfiles directory
+SOURCEDIR=$(realpath --relative-to=$TARGETDIR $(dirname $0))
+
+
 # A function to link a file from this directory as a dotfile in the user's $HOME
 # Assumes that the file should have the same name with a '.' prepended.
 makelink () {
-    if [[ -h $HOME/.$1 ]] then
-	rm $HOME/.$1
-    elif [[ -e $HOME/.$1 ]]; then
-        mv $HOME/.$1 $HOME/.backups
+    SOURCE=$SOURCEDIR/$1
+    TARGET=$TARGETDIR/.$1
+
+    if [[ -h $TARGET ]] then
+	rm $TARGET
+    elif [[ -e $TARGET ]]; then
+        mv $TARGET $HOME/.backups
     fi
-    ln -s $DIR/$1 $HOME/.$1
+    ln -s $SOURCE $TARGET
 }
 
-# Get the dotfiles directory
-DIR=$(dirname $0)
 
 # Create a backups directory to put old files in
 # my vim config uses this too, so it's good to make sure it's there.
-mkdir -p $HOME/.backups
+mkdir -p $TARGETDIR/.backups
 
 # Make the links
 makelink zshrc
