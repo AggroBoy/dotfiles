@@ -3,7 +3,9 @@
 # A function to link a file from this directory as a dotfile in the user's $HOME
 # Assumes that the file should have the same name with a '.' prepended.
 makelink () {
-    if [[ -f $HOME/.$1 ]]; then
+    if [[ -h $HOME/.$1 ]] then
+	rm $HOME/.$1
+    elif [[ -e $HOME/.$1 ]]; then
         mv $HOME/.$1 $HOME/.backups
     fi
     ln -s $DIR/$1 $HOME/.$1
