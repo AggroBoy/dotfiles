@@ -80,6 +80,7 @@ set cindent
 au FileType markdown setlocal nocindent textwidth=76 spell autoindent
 au FileType text setlocal nocindent formatoptions= textwidth=76 spell noautoindent
 au FileType doxiaapt setlocal nocindent textwidth=76 spell autoindent
+let g:vim_markdown_initial_foldlevel=4
 
 
 "spelling language
