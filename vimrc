@@ -106,6 +106,8 @@ if has("gui_running")
     set columns=100 lines=35
     if has("win32")
         set guifont=Consolas:h9
+    elseif hostname() = "khonsu"
+        set guifont=Source\ Code\ Pro:h12
     else
         set guifont=Source\ Code\ Pro:h13
     endif
