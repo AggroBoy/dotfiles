@@ -47,6 +47,9 @@ if has_vundle == 0
 endif
 
 
+"make sure we use utf-8; for some reason this isn't always the default.
+set enc=utf-8
+
 "make %% expand to the directory containing the current file
 cabbr <expr> %% expand('%:p:h')
 
