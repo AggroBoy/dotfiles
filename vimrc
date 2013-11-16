@@ -30,6 +30,11 @@ Bundle 'Townk/vim-autoclose'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
 
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle 'garbas/vim-snipmate'
+Bundle "honza/vim-snippets"
+
 Bundle 'mhinz/vim-startify'
 Bundle 'Shougo/unite.vim'
 
