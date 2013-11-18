@@ -314,6 +314,4 @@ endfunction
 
 nnoremap <C-p> :Unite file_rec<cr>
 
-" And now for abbreviations
 
-iab <expr> ddate strftime("%-d %B %Y")
