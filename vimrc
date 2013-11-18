@@ -30,6 +30,11 @@ Bundle 'Townk/vim-autoclose'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
 
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle 'garbas/vim-snipmate'
+Bundle "honza/vim-snippets"
+
 Bundle 'mhinz/vim-startify'
 Bundle 'Shougo/unite.vim'
 
@@ -106,10 +111,8 @@ if has("gui_running")
     set columns=100 lines=35
     if has("win32")
         set guifont=Consolas:h9
-    elseif hostname() = "khonsu"
-        set guifont=Source\ Code\ Pro:h12
     else
-        set guifont=Source\ Code\ Pro:h13
+        set guifont=Source\ Code\ Pro:h12
     endif
 endif
 
