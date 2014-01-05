@@ -1,6 +1,7 @@
 # General settings
 unsetopt beep
 bindkey -v
+set -o EXTENDEDGLOB
 
 # Color ls
 if [[ $(uname) == "Darwin" ]]; then
