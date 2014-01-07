@@ -87,6 +87,8 @@ au FileType text setlocal nocindent formatoptions= textwidth=76 spell noautoinde
 au FileType doxiaapt setlocal nocindent textwidth=76 spell autoindent
 let g:vim_markdown_initial_foldlevel=4
 
+"Automatically use paste mode when pasting
+imap <D-V> ^O"+p"
 
 "spelling language
 set spelllang=en_gb
