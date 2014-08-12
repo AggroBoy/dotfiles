@@ -42,6 +42,7 @@ Bundle 'bling/vim-bufferline'
 Bundle 'plasticboy/vim-markdown'
 Bundle 'cakebaker/scss-syntax.vim'
 
+Bundle 'itspriddle/vim-marked'
 
 if has_vundle == 0
     echo "Installing Bundles, please ignore key map error messages"
@@ -84,7 +85,6 @@ au FileType markdown setlocal nocindent textwidth=76 spell autoindent
 au FileType text setlocal nocindent formatoptions= textwidth=76 spell noautoindent
 au FileType doxiaapt setlocal nocindent textwidth=76 spell autoindent
 let g:vim_markdown_initial_foldlevel=4
-au FileType markdown command Marked silent !open -a Marked "%:p"
 
 "Automatically use paste mode when pasting
 imap <D-V> ^O"+p"
