@@ -41,6 +41,7 @@ Bundle 'bling/vim-bufferline'
 
 Bundle 'plasticboy/vim-markdown'
 Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'kchmck/vim-coffee-script'
 
 Bundle 'itspriddle/vim-marked'
 
