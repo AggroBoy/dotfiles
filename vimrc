@@ -39,8 +39,11 @@ Bundle 'Shougo/unite.vim'
 Bundle 'itchyny/lightline.vim'
 Bundle 'bling/vim-bufferline'
 
+Bundle 'godlygeek/tabular'
+
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'plasticboy/vim-markdown'
 
 Bundle 'itspriddle/vim-marked'
 
