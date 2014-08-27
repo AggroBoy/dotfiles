@@ -23,7 +23,6 @@ Bundle 'rizzatti/dash.vim'
 Bundle 'altercation/vim-colors-solarized'
 
 Bundle 'tpope/vim-surround'
-Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'Townk/vim-autoclose'
@@ -32,8 +31,7 @@ Bundle 'scrooloose/nerdcommenter'
 
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle 'garbas/vim-snipmate'
-Bundle "honza/vim-snippets"
+Bundle 'ervandew/supertab'
 
 Bundle 'mhinz/vim-startify'
 Bundle 'Shougo/unite.vim'
@@ -42,7 +40,9 @@ Bundle 'itchyny/lightline.vim'
 Bundle 'bling/vim-bufferline'
 
 Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'kchmck/vim-coffee-script'
 
+Bundle 'itspriddle/vim-marked'
 
 if has_vundle == 0
     echo "Installing Bundles, please ignore key map error messages"
