@@ -24,7 +24,6 @@ Bundle 'altercation/vim-colors-solarized'
 
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-fugitive'
-Bundle 'Rip-Rip/clang_complete'
 Bundle 'Townk/vim-autoclose'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdcommenter'
