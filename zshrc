@@ -16,11 +16,6 @@ export LESS='-R'
 # Stop zsh trying to parse rake arguments
 alias rake='noglob rake'
 
-# History settings
-#HISTFILE=~/.histfile
-#HISTSIZE=5000
-#SAVEHIST=10000
-
 # The prompt
 export PS1='%B%* [%m %~] %h%#%b '
 
