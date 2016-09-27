@@ -101,6 +101,9 @@ set backupdir=$HOME/.backups
 set directory^=$HOME/.backups//   "put all swap files together in one place
 set backupcopy=yes
 
+"turn off cowsy header in startify
+let g:startify_custom_header =[]
+
 "make tabs work as expected (expand to spaces and 4 of them at that)...
 set smarttab expandtab shiftwidth=4 tabstop=4
 
