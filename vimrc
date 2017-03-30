@@ -1,57 +1,39 @@
 "don't need to be compatible with vi
 set nocompatible 
 
-"set vundle up
-call system("mkdir -p $HOME/.vim")
-let has_vundle=1
-if !filereadable($HOME."/.vim/bundle/vundle/README.md")
-    echo "Installing Vundle..."
-    echo ""
-    silent !mkdir -p $HOME/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle $HOME/.vim/bundle/vundle
-    let has_vundle=0
-endif
-filetype off                                " required to init
-set rtp+=$HOME/.vim/bundle/vundle/          " include vundle
-call vundle#rc()                            " init vundle
-Bundle 'gmarik/vundle'
-
 " bundles
-Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
+call plug#begin()
 
-Bundle 'altercation/vim-colors-solarized'
+Plug 'rizzatti/funcoo.vim'
+Plug 'rizzatti/dash.vim'
 
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-fugitive'
-Bundle 'Townk/vim-autoclose'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdcommenter'
+Plug 'altercation/vim-colors-solarized'
 
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle 'ervandew/supertab'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'Townk/vim-autoclose'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdcommenter'
 
-Bundle 'mhinz/vim-startify'
-Bundle 'Shougo/unite.vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'ervandew/supertab'
 
-Bundle 'itchyny/lightline.vim'
-Bundle 'bling/vim-bufferline'
+Plug 'mhinz/vim-startify'
+Plug 'Shougo/unite.vim'
 
-Bundle 'godlygeek/tabular'
+Plug 'itchyny/lightline.vim'
+Plug 'bling/vim-bufferline'
 
-Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
 
-Bundle 'itspriddle/vim-marked'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'plasticboy/vim-markdown'
 
-if has_vundle == 0
-    echo "Installing Bundles, please ignore key map error messages"
-    echo ""
-    :BundleInstall
-endif
+Plug 'itspriddle/vim-marked'
 
+call plug#end()
 
 "make %% expand to the directory containing the current file
 cabbr <expr> %% expand('%:p:h')
