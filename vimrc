@@ -64,11 +64,13 @@ set formatoptions=tcroq
 set cinoptions=(0t0l0
 set cindent
 
+"disable folding
+set nofoldenable
+
 "text documents don't want any of that
 au FileType markdown setlocal nocindent textwidth=76 spell autoindent
 au FileType text setlocal nocindent formatoptions= textwidth=76 spell noautoindent
 au FileType doxiaapt setlocal nocindent textwidth=76 spell autoindent
-let g:vim_markdown_initial_foldlevel=4
 au FileType markdown command! Marked silent !open -a Marked "%:p"
 
 "Automatically use paste mode when pasting
