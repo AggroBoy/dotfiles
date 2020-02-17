@@ -34,9 +34,6 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/home/goringw/.zshrc'
 
-autoload -Uz compinit
-compinit
-
 
 # Import the machine specific settings
 if [[ -f ~/.zshrc.local ]]; then
@@ -45,4 +42,7 @@ else
     echo "# Machine-specific zsh settings; will override .zshrc" > ~/.zshrc.local
     echo "# NOT under source control" >> ~/.zshrc.local
 fi
+
+autoload -Uz compinit
+compinit
 
