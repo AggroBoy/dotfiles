@@ -43,6 +43,9 @@ else
     echo "# NOT under source control" >> ~/.zshrc.local
 fi
 
+# Turn off history
+export HISTFILE=""
+
 autoload -Uz compinit
 compinit
 
