@@ -33,6 +33,8 @@ Plug 'plasticboy/vim-markdown'
 
 Plug 'itspriddle/vim-marked'
 
+Plug 'Vimjas/vim-python-pep8-indent'
+
 call plug#end()
 
 "make %% expand to the directory containing the current file
@@ -109,6 +111,14 @@ endif
 
 "turn on fancy python syntax highlighting
 let python_highlight_all = 1
+
+"configure syntastic
+let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_python_checkers = ['python']
+let g:syntastic_mode_map = {
+            \ "mode": "passive",
+            \ "active_filetypes": [],
+            \ "passive_filetypes": ["python"] }
 
 "things to do if syntax highlighting is available (when you're dead)
 if &t_Co > 2 || has("gui_running")
