@@ -44,7 +44,7 @@ else
 fi
 
 # Turn off history
-export HISTFILE=""
+unset HISTFILE
 
 autoload -Uz compinit
 compinit
