@@ -137,6 +137,9 @@ let g:bufferline_echo = 0
 " CtrlP
 let g:ctrlp_max_files = 500
 
+" Supertab
+let g:SuperTabCrMapping = 1
+
 " Syntastic
 let g:syntastic_python_python_exec = 'python3'
 let g:syntastic_python_checkers = ['python', 'pylint']
