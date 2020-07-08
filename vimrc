@@ -67,6 +67,8 @@ set directory^=$HOME/.backups// "put all swap files together in one place
 set backupcopy=yes
 set spelllang=en_gb
 set smarttab expandtab shiftwidth=4 tabstop=4
+noremap <silent> <S-Right> :bn!<cr>
+noremap <silent> <S-Left> :bp!<cr>
 " Return the cursor to it's last position on open
 autocmd BufReadPost *
             \ if line("'\"") > 0 && line("'\"") <= line("$") |
