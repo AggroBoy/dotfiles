@@ -1,103 +1,91 @@
-"don't need to be compatible with vi
+" don't need to be compatible with vi
 set nocompatible 
 
-" bundles
+" 
+" Plugins
+" 
 call plug#begin()
 
+" Libraries
 Plug 'rizzatti/funcoo.vim'
-Plug 'rizzatti/dash.vim'
-
-Plug 'altercation/vim-colors-solarized'
-
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
-Plug 'Townk/vim-autoclose'
-Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdcommenter'
-
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
-Plug 'ervandew/supertab'
 
+" Vader for unit tests
+Plug 'junegunn/vader.vim'
+
+" Syntax and highlight
+Plug 'altercation/vim-colors-solarized'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'kchmck/vim-coffee-script'
+"Plug 'plasticboy/vim-markdown'
+Plug 'AggroBoy/vim-markdown'
+
+" General UI
 Plug 'mhinz/vim-startify'
-Plug 'Shougo/unite.vim'
-
 Plug 'itchyny/lightline.vim'
 Plug 'bling/vim-bufferline'
 
+" Coding assistance
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'Townk/vim-autoclose'
+Plug 'scrooloose/syntastic'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
-
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'kchmck/vim-coffee-script'
-Plug 'plasticboy/vim-markdown'
-
-Plug 'itspriddle/vim-marked'
-
 Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'vim-scripts/argtextobj.vim'
+"Plug 'chaoren/vim-wordmotion'
+Plug 'Aggroboy/vim-wordmotion'
+
+" Commenting plugins - pick one
+"Plug 'scrooloose/nerdcommenter'
+"Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
+
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
-"make %% expand to the directory containing the current file
-cabbr <expr> %% expand('%:p:h')
 
-"we like the moon... no, line numbers!
+
+" General VIM config
+" ==================
+
+filetype plugin indent on
+set updatetime=100              " makes various things happen faster then the fefault 4 seconds
+cabbr <expr> %% expand('%:p:h') " make %% expand to the directory containing the current file
 set number
-
-"statusline
-set laststatus=2
-
-"incremental search is always nice
+set laststatus=2                " Always show the status line
 set incsearch
+set backspace=indent,eol,start  " allow backspacing over everything in insert mode
+set nofoldenable
+imap <D-V> ^O"+p"               " Automatically use paste mode when pasting
+set backup
+set backupdir=$HOME/.backups
+set directory^=$HOME/.backups// "put all swap files together in one place
+set backupcopy=yes
+set spelllang=en_gb
+set smarttab expandtab shiftwidth=4 tabstop=4
+" Return the cursor to it's last position on open
+autocmd BufReadPost *
+            \ if line("'\"") > 0 && line("'\"") <= line("$") |
+            \   exe "normal! g`\"" |
+            \ endif
 
-"show the current mode
-set showmode
 
-"display incomplete comands
-set showcmd
+" Indenting
+" =========
 
-"turn on the ruler (show the columns in the position display)
-set ruler
-
-"allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-"turn on and configure auto formatting/indenting
 set formatoptions=tcroq
 set cinoptions=(0t0l0
 set cindent
 
-"disable folding
-set nofoldenable
 
-"text documents don't want any of that
-au FileType markdown setlocal nocindent textwidth=76 spell autoindent
-au FileType text setlocal nocindent formatoptions= textwidth=76 spell noautoindent
-au FileType doxiaapt setlocal nocindent textwidth=76 spell autoindent
-au FileType markdown command! Marked silent !open -a Marked "%:p"
-
-"Automatically use paste mode when pasting
-imap <D-V> ^O"+p"
-
-"spelling language
-set spelllang=en_gb
-
-"configure backups (and .swps)
-set backup
-set backupdir=$HOME/.backups
-set directory^=$HOME/.backups//   "put all swap files together in one place
-set backupcopy=yes
-
-"turn off cowsy header in startify
-let g:startify_custom_header =[]
-
-"make tabs work as expected (expand to spaces and 4 of them at that)...
-set smarttab expandtab shiftwidth=4 tabstop=4
-
-"except for makefiles where that spells disaster (they need real tabs)
-au FileType make setlocal noexpandtab shiftwidth=8 tabstop=8
-
-
-"set the gui options
+" Gui options
+" ===========
 if has("gui_running")
     set guioptions-=T
     set guioptions-=t
@@ -109,64 +97,70 @@ if has("gui_running")
     endif
 endif
 
-"turn on fancy python syntax highlighting
-let python_highlight_all = 1
 
-"configure syntastic
-let g:syntastic_python_python_exec = 'python3'
-let g:syntastic_python_checkers = ['python']
-let g:syntastic_mode_map = {
-            \ "mode": "passive",
-            \ "active_filetypes": [],
-            \ "passive_filetypes": ["python"] }
-
-"things to do if syntax highlighting is available (when you're dead)
+" Syntax highlighting
+" ===================
 if &t_Co > 2 || has("gui_running")
     syntax enable
     set hlsearch
     set background=light
     colorscheme solarized
+
+    map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+                \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+                \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 endif
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
 
-    " Enable file type detection.
-    " Use the default filetype settings, so that mail gets 'tw' set to 72,
-    " 'cindent' is on in C files, etc.
-    " Also load indent files, to automatically do language-dependent indenting.
-    filetype plugin indent on
+" Plugin config
+" ==============
 
-    " Put these in an autocmd group, so that we can delete them easily.
-    augroup vimrcEx
-        au!
+" Wordmotion
+let g:Wordmotion_Spaces = ''
+let g:wordmotion_spaces = '_-'
 
-        " For all text files set 'textwidth' to 78 characters.
-        autocmd FileType text setlocal textwidth=78
+" turn off cowsy header in startify
+let g:startify_custom_header =[]
 
-        " When editing a file, always jump to the last known cursor position.
-        " Don't do it when the position is invalid or when inside an event handler
-        " (happens when dropping a file on gvim).
-        autocmd BufReadPost *
-                    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-                    \   exe "normal! g`\"" |
-                    \ endif
+" gitgutter colors
+highlight GitGutterAdd    guifg=#87f4a3 ctermfg=34
+highlight GitGutterChange guifg=#87f4a3 ctermfg=172
+highlight SignColumn ctermfg=14 ctermbg=white guifg=Brown
+let g:gitgutter_sign_added= '<❙'
+let g:gitgutter_sign_modified = '~❙'
+let g:gitgutter_sign_removed = '◣_'
 
-    augroup END
+" bufferline - stop it overwriting the commandline
+let g:bufferline_echo = 0
 
-else
+" Syntastic
+let g:syntastic_python_python_exec = 'python3'
+let g:syntastic_python_checkers = ['python', 'pylint']
+let g:syntastic_mode_map = {
+            \ "mode": "passive",
+            \ "active_filetypes": [],
+            \ "passive_filetypes": ["python"] }
+function! s:syntastic()
+    SyntasticCheck
+    call lightline#update()
+endfunction
 
-    set autoindent        " always set autoindenting on
 
-endif " has("autocmd")
+" Filetype specific settings and overrides
+" =================================
+
+" Plaintext
+au FileType markdown setlocal nocindent textwidth=116 spell autoindent
+au FileType text setlocal nocindent formatoptions= textwidth=116 spell noautoindent
+au FileType doxiaapt setlocal nocindent textwidth=116 spell autoindent
+
+" Coding
+au FileType make setlocal noexpandtab shiftwidth=8 tabstop=8
+au FileType python let python_highlight_all=1
 
 
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-            \ | wincmd p | diffthis
-
-" Configure the status bar
+" Lightline
+" =========
 let g:lightline = {
             \ 'colorscheme': 'solarized',
             \ 'active': {
@@ -305,17 +299,4 @@ function! TagbarStatusFunc(current, sort, fname, ...) abort
     let g:lightline.fname = a:fname
     return lightline#statusline(0)
 endfunction
-
-augroup AutoSyntastic
-    autocmd!
-    autocmd BufWritePost *.c,*.cpp,*.perl,*py call s:syntastic()
-augroup END
-function! s:syntastic()
-    SyntasticCheck
-    call lightline#update()
-endfunction
-
-
-nnoremap <C-p> :Unite file_rec<cr>
-
 
