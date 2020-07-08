@@ -133,6 +133,9 @@ let g:gitgutter_sign_removed = '◣_'
 " bufferline - stop it overwriting the commandline
 let g:bufferline_echo = 0
 
+" CtrlP
+let g:ctrlp_max_files = 500
+
 " Syntastic
 let g:syntastic_python_python_exec = 'python3'
 let g:syntastic_python_checkers = ['python', 'pylint']
