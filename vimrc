@@ -41,9 +41,7 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'Aggroboy/vim-wordmotion'
 
 " Commenting plugins - pick one
-"Plug 'scrooloose/nerdcommenter'
-"Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-commentary'
+Plug 'tomtom/tcomment_vim'
 
 Plug 'ctrlpvim/ctrlp.vim'
 
