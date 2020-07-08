@@ -18,8 +18,7 @@ Plug 'junegunn/vader.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'kchmck/vim-coffee-script'
-"Plug 'plasticboy/vim-markdown'
-Plug 'AggroBoy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 
 " General UI
 Plug 'mhinz/vim-startify'
