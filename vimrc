@@ -136,8 +136,17 @@ let g:wordmotion_mappings = {
       \ 'iW': ''
       \}
 
-" turn off cowsy header in startify
+" Startify
 let g:startify_custom_header =[]
+let g:startify_change_to_vcs_root = 1
+let g:startify_bookmarks = [ {'a': '~/development/acme-tooling/'} ]
+let g:startify_commands = [ {'i':':PlugInstall'}, {'u': ':PlugUpdate'}, {'c': ':PlugClean'}, {'p': ':PlugUpgrade'} ]
+let g:startify_lists = [
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+      \ { 'type': 'files',     'header': ['   MRU']            , 'indices': [ '~0', '~1', '~2', '~3', '~4', '~5', '~6', '~7', '~8', '~9' ]},
+      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ ]
 
 " gitgutter colors
 highlight GitGutterAdd    guifg=#00af00 ctermfg=34
