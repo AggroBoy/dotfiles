@@ -137,7 +137,7 @@ let g:gitgutter_sign_modified_removed = '~‗'
 let g:bufferline_echo = 0
 
 " CtrlP
-let g:ctrlp_max_files = 500
+let g:ctrlp_max_files = 5000
 
 " Supertab
 let g:SuperTabCrMapping = 1
