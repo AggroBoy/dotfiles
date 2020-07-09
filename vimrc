@@ -106,6 +106,7 @@ if &t_Co > 2 || has("gui_running")
     set hlsearch
     set background=light
     colorscheme solarized
+    highlight clear SignColumn
 
     map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
                 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
@@ -124,9 +125,9 @@ let g:wordmotion_spaces = '_-'
 let g:startify_custom_header =[]
 
 " gitgutter colors
-highlight GitGutterAdd    guifg=#87f4a3 ctermfg=34
-highlight GitGutterChange guifg=#87f4a3 ctermfg=172
-highlight SignColumn ctermfg=14 ctermbg=white guifg=Brown
+highlight GitGutterAdd    guifg=#00af00 ctermfg=34
+highlight GitGutterChange guifg=#d78700 ctermfg=172
+highlight GitGutterDelete guifg=#d75f00 ctermfg=166
 let g:gitgutter_sign_added= '<❙'
 let g:gitgutter_sign_modified = '~❙'
 let g:gitgutter_sign_removed = '◣_'
