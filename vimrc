@@ -31,7 +31,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'Townk/vim-autoclose'
 Plug 'scrooloose/syntastic'
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'Vimjas/vim-python-pep8-indent'
@@ -153,6 +153,11 @@ function! s:syntastic()
     SyntasticCheck
     call lightline#update()
 endfunction
+
+" IndentLine
+let g:indentLine_char= '¦'
+let g:indentLine_color_term=252
+let g:indentLine_color_gui='#e0e0e0'
 
 
 " Filetype specific settings and overrides
