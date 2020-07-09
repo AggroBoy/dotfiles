@@ -31,7 +31,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'Townk/vim-autoclose'
 Plug 'scrooloose/syntastic'
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'Vimjas/vim-python-pep8-indent'
@@ -39,6 +39,7 @@ Plug 'vim-scripts/argtextobj.vim'
 Plug 'michaeljsmith/vim-indent-object'
 "Plug 'chaoren/vim-wordmotion'
 Plug 'Aggroboy/vim-wordmotion'
+Plug 'tpope/vim-sleuth'
 
 " Commenting plugins - pick one
 Plug 'tomtom/tcomment_vim'
@@ -120,6 +121,20 @@ endif
 " Wordmotion
 let g:Wordmotion_Spaces = ''
 let g:wordmotion_spaces = '_-'
+let g:wordmotion_mappings = {
+      \ 'w': 'W',
+      \ 'W': '',
+      \ 'b': 'B',
+      \ 'B': '',
+      \ 'e': 'E',
+      \ 'E': '',
+      \ 'ge': 'gE',
+      \ 'gE': '',
+      \ 'aw': 'aW',
+      \ 'aW': '',
+      \ 'iw': 'iW',
+      \ 'iW': ''
+      \}
 
 " turn off cowsy header in startify
 let g:startify_custom_header =[]
@@ -138,6 +153,11 @@ let g:bufferline_echo = 0
 
 " CtrlP
 let g:ctrlp_max_files = 5000
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '(\v[\/]\.(git|hg|svn)|(node_modules)$',
+  \ 'file': '\v\.(exe|so|dll)$'
+  \ }
+
 
 " Supertab
 let g:SuperTabCrMapping = 1
