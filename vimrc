@@ -129,8 +129,9 @@ highlight GitGutterAdd    guifg=#00af00 ctermfg=34
 highlight GitGutterChange guifg=#d78700 ctermfg=172
 highlight GitGutterDelete guifg=#d75f00 ctermfg=166
 let g:gitgutter_sign_added= '<❙'
-let g:gitgutter_sign_modified = '~❙'
+let g:gitgutter_sign_modified = '~|'
 let g:gitgutter_sign_removed = '◣_'
+let g:gitgutter_sign_modified_removed = '~‗'
 
 " bufferline - stop it overwriting the commandline
 let g:bufferline_echo = 0
