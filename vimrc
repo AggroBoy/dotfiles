@@ -158,6 +158,7 @@ endfunction
 let g:indentLine_char= '¦'
 let g:indentLine_color_term=252
 let g:indentLine_color_gui='#e0e0e0'
+let g:indentLine_fileTypeExclude=['text', 'markdown']
 
 
 " Filetype specific settings and overrides
