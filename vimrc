@@ -152,10 +152,15 @@ let g:startify_lists = [
 highlight GitGutterAdd    guifg=#00af00 ctermfg=34
 highlight GitGutterChange guifg=#d78700 ctermfg=172
 highlight GitGutterDelete guifg=#d75f00 ctermfg=166
-let g:gitgutter_sign_added= '<❙'
-let g:gitgutter_sign_modified = '~|'
+let g:gitgutter_sign_added= '█ '
+let g:gitgutter_sign_modified = '█ '
 let g:gitgutter_sign_removed = '◣_'
-let g:gitgutter_sign_modified_removed = '~‗'
+let g:gitgutter_sign_modified_removed = '█_'
+" These are better if there's no colour... is that something I ever need?
+" let g:gitgutter_sign_added= '<❙'
+" let g:gitgutter_sign_modified = '~|'
+" let g:gitgutter_sign_removed = '◣_'
+" let g:gitgutter_sign_modified_removed = '~‗'
 
 " bufferline - stop it overwriting the commandline
 let g:bufferline_echo = 0
