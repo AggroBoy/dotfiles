@@ -17,7 +17,8 @@ export LESS='-R'
 alias rake='noglob rake'
 
 # The prompt
-export PS1='%B%* [%m %~] %h%#%b '
+export PS1="
+%B%* [%m %~] %h%#%b "
 
 # completion settings
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -48,4 +49,5 @@ unset HISTFILE
 
 autoload -Uz compinit
 compinit
+
 
