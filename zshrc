@@ -3,13 +3,6 @@ unsetopt beep
 bindkey -v
 set -o EXTENDEDGLOB
 
-# Color ls
-if [[ $(uname) == "Darwin" ]]; then
-    alias ls='ls -G'
-else
-    alias ls='ls --color'
-fi
-
 # Make less accept colour
 export LESS='-R'
 
@@ -19,6 +12,9 @@ alias rake='noglob rake'
 # The prompt
 export PS1="
 %B%* [%m %~] %h%#%b "
+
+# ls colours
+export LS_COLORS="da=32:di=34:ux=35:ex=35:ln=33"
 
 # completion settings
 zstyle ':completion:*' auto-description 'specify: %d'
@@ -35,6 +31,12 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/home/goringw/.zshrc'
 
+# Turn off history
+unset HISTFILE
+
+autoload -Uz compinit
+compinit
+
 
 # Import the machine specific settings
 if [[ -f ~/.zshrc.local ]]; then
@@ -44,10 +46,22 @@ else
     echo "# NOT under source control" >> ~/.zshrc.local
 fi
 
-# Turn off history
-unset HISTFILE
 
-autoload -Uz compinit
-compinit
+# Improved / alternate command replacements
+if [[ -f $(whence exa) ]]; then
+    alias ls="exa";
+    export EXA_COLORS="reset:$LS_COLORS"
+else
+    # No exa, so at least make ls be colour
+    if [[ $(uname) == "Darwin" ]]; then
+        alias ls='ls -G'
+    else
+        alias ls='ls --color'
+    fi
+fi
 
+# The lscolors library that fd uses does't have a `reset` like exa, so have to be creative to
+# remove it's built-in defaults. Also, use a more subtle prefix-dir colour than the standard
+# ls dir colour
+alias fd='LS_COLORS="*=05:$LS_COLORS:di=33" fd'
 
