@@ -45,6 +45,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'tomtom/tcomment_vim'
 
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'chrisbra/unicode.vim'
 
 call plug#end()
 
