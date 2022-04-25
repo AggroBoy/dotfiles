@@ -13,11 +13,23 @@ realpath() {
   echo "$REALPATH"
 }
 
-# A function to link a file from this directory as a dotfile in the user's $HOME
-# Assumes that the file should have the same name with a '.' prepended.
-makelink () {
+linkhome () {
     SOURCE=$SOURCEDIR/$1
     TARGET=$TARGETDIR/.$1
+    
+    makelink $SOURCE $TARGET
+}
+
+linkconfig () {
+    SOURCE=$1
+    TARGET=$TARGETDIR/.config/$(basename $1)
+
+    makelink $SOURCE $TARGET
+}
+
+makelink() {
+    SOURCE=$1
+    TARGET=$2
 
     if [[ -h $TARGET ]] then
 	rm $TARGET
@@ -32,15 +44,27 @@ makelink () {
 TARGETDIR=$HOME
 
 # Get the dotfiles directory
-SOURCEDIR=$(realpath $(dirname $0))
-SOURCEDIR=$(echo $SOURCEDIR | sed -e "s|/.$||")
-SOURCEDIR=$(echo $SOURCEDIR | sed -e "s|^$TARGETDIR/||")
+QUALIFIED_SOURCEDIR=$(realpath $(dirname $0))
+QUALIFIED_SOURCEDIR=$(echo $QUALIFIED_SOURCEDIR | sed -e "s|/.$||")
+SOURCEDIR=$(echo $QUALIFIED_SOURCEDIR | sed -e "s|^$TARGETDIR/||")
 
 # Create a backups directory to put old files in
 # my vim config uses this too, so it's good to make sure it's there.
 mkdir -p $TARGETDIR/.backups
 
+# Many more modern utils keep their config in ~/.config, so make sure it's there
+mkdir -p $TARGETDIR/.config
+
+
 # Make the links
-makelink zshrc
-makelink vimrc
+################
+
+# homedir
+linkhome zshrc
+linkhome vimrc
+
+# .config
+for FILE in $QUALIFIED_SOURCEDIR/config/*; do
+    linkconfig $FILE
+done
 
