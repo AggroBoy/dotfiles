@@ -22,9 +22,6 @@ brew "exa"
 # choose - a simpler/better replacement for cut
 brew "choose-rust"
 
-# topgrade - a way to keep various things upgraded with one tool
-brew "topgrade"
-
 # tldr - simple documentation
 brew "tldr"
 
