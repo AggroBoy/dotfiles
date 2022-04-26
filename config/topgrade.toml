@@ -8,7 +8,7 @@
 #ignore_failures = ["powershell"]
 
 # Run specific steps - same options as the command line flag
-only = ["brew_formula", "brew_cask", "vim", "git_repos"]
+only = ["brew_formula", "brew_cask", "vim", "git_repos", "tldr"]
 
 # Do not ask to retry failed steps (default: false)
 #no_retry = true
