@@ -16,6 +16,17 @@ export PS1="
 # ls colours
 export LS_COLORS="da=32:di=34:ux=35:ex=35:ln=33"
 
+# Turn off history
+unset HISTFILE
+
+# Import the machine specific settings
+if [[ -f ~/.zshrc.local ]]; then
+    source ~/.zshrc.local
+else
+    echo "# Machine-specific zsh settings; will override .zshrc" > ~/.zshrc.local
+    echo "# NOT under source control" >> ~/.zshrc.local
+fi
+
 # completion settings
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _match _approximate _prefix
@@ -31,21 +42,8 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*' verbose true
 zstyle :compinstall filename '/home/goringw/.zshrc'
 
-# Turn off history
-unset HISTFILE
-
 autoload -Uz compinit
 compinit
-
-
-# Import the machine specific settings
-if [[ -f ~/.zshrc.local ]]; then
-    source ~/.zshrc.local
-else
-    echo "# Machine-specific zsh settings; will override .zshrc" > ~/.zshrc.local
-    echo "# NOT under source control" >> ~/.zshrc.local
-fi
-
 
 # Improved / alternate command replacements
 if [[ -f $(whence exa) ]]; then
