@@ -25,3 +25,6 @@ brew "choose-rust"
 # tldr - simple documentation
 brew "tldr"
 
+# tuc - Text manipulation and cutting tool
+brew "tuc"
+
