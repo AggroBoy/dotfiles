@@ -140,7 +140,7 @@ let g:wordmotion_mappings = {
 " Startify
 let g:startify_custom_header =[]
 let g:startify_change_to_vcs_root = 1
-let g:startify_bookmarks = [ {'a': '~/development/acme-tooling/'} ]
+let g:startify_bookmarks = [ {'d': '~/Documents/development/'} ]
 let g:startify_commands = [ {'i':':PlugInstall'}, {'u': ':PlugUpdate'}, {'c': ':PlugClean'}, {'p': ':PlugUpgrade'} ]
 let g:startify_lists = [
       \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
