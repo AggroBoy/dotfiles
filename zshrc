@@ -46,9 +46,9 @@ autoload -Uz compinit
 compinit
 
 # Improved / alternate command replacements
-if [[ -f $(whence exa) ]]; then
-    alias ls="exa";
-    export EXA_COLORS="reset:$LS_COLORS"
+if [[ -f $(whence eza) ]]; then
+    alias ls="eza";
+    export EZA_COLORS="reset:$LS_COLORS"
 else
     # No exa, so at least make ls be colour
     if [[ $(uname) == "Darwin" ]]; then
