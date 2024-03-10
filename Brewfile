@@ -16,8 +16,8 @@ brew "fd"
 # bat - a cat replacement/improvement
 brew "bat"
 
-# exa - a modern ls replacement
-brew "exa"
+# eza - Modern, maintained replacement for ls
+brew "eza"
 
 # choose - a simpler/better replacement for cut
 brew "choose-rust"
