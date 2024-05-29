@@ -28,3 +28,6 @@ brew "tldr"
 # tuc - Text manipulation and cutting tool
 brew "tuc"
 
+# jq - Command line json processor
+brew "jq"
+
