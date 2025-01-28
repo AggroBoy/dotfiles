@@ -11,7 +11,7 @@ alias rake='noglob rake'
 
 # The prompt
 export PS1="
-%B%* [%m %~] %h%#%b "
+%{$(iterm2_prompt_mark)%}%B%* [%m %~] %h%#%b "
 
 # ls colours
 export LS_COLORS="da=32:di=34:ux=35:ex=35:ln=33"
