@@ -37,8 +37,7 @@ Plug 'godlygeek/tabular'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'vim-scripts/argtextobj.vim'
 Plug 'michaeljsmith/vim-indent-object'
-"Plug 'chaoren/vim-wordmotion'
-Plug 'Aggroboy/vim-wordmotion'
+Plug 'chaoren/vim-wordmotion'
 Plug 'tpope/vim-sleuth'
 
 " Commenting plugins - pick one

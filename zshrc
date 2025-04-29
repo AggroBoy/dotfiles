@@ -10,8 +10,13 @@ export LESS='-R'
 alias rake='noglob rake'
 
 # The prompt
-export PS1="
+if [[ $(uname) == "Darwin" ]]; then
+    export PS1="
 %{$(iterm2_prompt_mark)%}%B%* [%m %~] %h%#%b "
+else
+    export PS1="
+%B%* [%m %~] %h%#%b "
+fi
 
 # ls colours
 export LS_COLORS="da=32:di=34:ux=35:ex=35:ln=33"
@@ -51,6 +56,7 @@ if [[ -f $(whence eza) ]]; then
     export EZA_COLORS="reset:$LS_COLORS"
 else
     # No exa, so at least make ls be colour
+    export LS_COLORS="di=34:ex=35:ln=33"
     if [[ $(uname) == "Darwin" ]]; then
         alias ls='ls -G'
     else
